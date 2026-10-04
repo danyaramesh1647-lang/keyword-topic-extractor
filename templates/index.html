@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Keyword and Topic Extractor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Find what a text is really about</h1>
+      <p class="lede">Paste an article or paragraph. The extractor finds the most important keywords and phrases, counts them, and identifies the main topics.</p>
+    </header>
+
+    <label for="text" class="sr">Text to analyze</label>
+    <textarea id="text" placeholder="Paste at least 20 words here..."></textarea>
+    <div class="counts"><span id="c-words">0 words</span></div>
+
+    <div class="actions">
+      <button id="example" type="button" class="ghost">Use example</button>
+      <button id="clear" type="button" class="ghost">Clear</button>
+      <button id="extract" type="button">Extract keywords</button>
+    </div>
+    <p id="error" role="alert" hidden></p>
+
+    <section id="result" hidden aria-live="polite">
+      <div class="head">
+        <p id="stats" class="muted"></p>
+        <button id="copy" type="button" class="ghost">Copy results</button>
+      </div>
+
+      <h2>Keywords</h2>
+      <ul id="tags" class="tags"></ul>
+
+      <h2>Keyword frequency</h2>
+      <div id="freq" class="freq"></div>
+
+      <h2>Main topics</h2>
+      <ol id="topics" class="topics"></ol>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
